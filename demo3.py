@@ -20,19 +20,19 @@ class FlashcardApp:
         # Display the logo on the homepage
         self.logo_label = tk.Label(self.homepage, image=logo_image, bg="lightblue")
         self.logo_label.image = logo_image
-        self.logo_label.place(x=200, y=10, width=400, height=350)
+        self.logo_label.place(x=199, y=20, width=400, height=350)
 
         # Change the color of the start_button
         self.start_button = tk.Button(self.homepage, text="Start Learning", command=self.show_categories)
         self.start_button_radius = 25
-        self.start_button.config(width=12, height=2, borderwidth=5, bg="lightblue")  # Change the background color to red
+        self.start_button.config(width=12, height=2, borderwidth=3, bg="lightpink2", fg="black" )  # Change the background color to red
         self.start_button.pack(pady=20)
-        self.start_button.place(x=350, y=350)
+        self.start_button.place(x=340, y=350)
         
 
 
         # Set up the categories page
-        self.categories_page = tk.Frame(master, bg="#BDFCC9", width=800, height=600)
+        self.categories_page = tk.Frame(master, bg="lavender", width=800, height=600)
         self.categories_page.pack_propagate(0)
 
         self.hiragana_button = tk.Button(self.categories_page, text="Hiragana", command=lambda: self.show_flashcards("Hiragana"))
@@ -41,7 +41,8 @@ class FlashcardApp:
         self.back_button_categories = tk.Button(self.categories_page, text="Back", command=self.show_homepage)
 
         # Set up the flashcards page
-        self.flashcards_page = tk.Frame(master, bg="#E6E6FA", width=800, height=600)
+
+        self.flashcards_page = tk.Frame(master, bg="slategray1", width=800, height=600)
         self.flashcards_page.pack_propagate(0)
         
         self.card_label = tk.Label(self.flashcards_page, text="", font=("Helvetica", 100))
@@ -63,6 +64,7 @@ class FlashcardApp:
         # Add a sound button
         self.sound_button = tk.Button(self.flashcards_page, text="Sound", command=self.play_sound)
         # self.sound_button.pack(pady=10)
+        self.sound_button.config(bg="pink", fg="black" )
         self.sound_button.place(x=380, y=370)
 
     def flip_flashcard(self, event=None):
@@ -99,11 +101,14 @@ class FlashcardApp:
         self.homepage.pack_forget()
         self.flashcards_page.pack_forget()
         self.categories_page.pack()
-
+        self.hiragana_button.config(width=12, height=2, borderwidth=3, bg="lightpink1", fg="black" )
+        self.katakana_button.config(width=12, height=2, borderwidth=3, bg="lightpink1", fg="black" )
+        self.vocab_button.config(width=12, height=2, borderwidth=3, bg="lightpink1", fg="black" )
+        self.back_button_categories.config(bg="mistyrose1", fg="black" )
         # Arrange widgets in the categories page
-        self.hiragana_button.place(x=361, y=240)
-        self.katakana_button.place(x=361, y=270)
-        self.vocab_button.place(x=355, y=300)
+        self.hiragana_button.place(x=340, y=190)
+        self.katakana_button.place(x=340, y=240)
+        self.vocab_button.place(x=340, y=290)
         self.back_button_categories.place(x=371, y=345)
 
     def show_flashcards(self, category):
@@ -112,11 +117,13 @@ class FlashcardApp:
         self.current_index = 0
 
         # Update the flashcard label with the first flashcard
-        self.card_label.config(text=self.get_flashcard_text(), bg="#E6E6FA")
+        self.card_label.config(text=self.get_flashcard_text(), bg="slategray1")
         self.flashcards_page.pack_forget()
         self.categories_page.pack_forget()
         self.homepage.pack_forget()
         self.flashcards_page.pack()
+        self.back_button_flashcards.config(bg="mistyrose1", fg="black" )
+        self.next_button.config(bg="mistyrose1", fg="black" )
 
         # Arrange widgets in the flashcards page
         # self.card_label.pack(pady=50)
