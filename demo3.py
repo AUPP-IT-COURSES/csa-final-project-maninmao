@@ -130,12 +130,12 @@ class FlashcardApp:
         # self.back_button_flashcards.pack(pady=10)
         # self.next_button.pack(pady=10)
         if category == "Vocabulary":
-            self.card_label.config(font=("Helvetica", 40))
+            self.card_label.config(font=("Helvetica", 40), bg="slategray1")
             self.card_label.place(x=272, y=190)
             self.next_button.place(x=470, y=370)
             self.back_button_flashcards.place(x=300, y=370)
         else:
-            self.card_label.config(font=("Helvetica", 100))
+            self.card_label.config(font=("Helvetica", 100), bg="slategray1")
             self.card_label.place(x=335, y=160)
             self.next_button.place(x=470, y=370)
             self.back_button_flashcards.place(x=300, y=370)
@@ -168,7 +168,7 @@ class FlashcardApp:
         # Toggle between front and back sides
         if self.showing_front:
             # Display the back side (definition)
-            self.card_label.config(text=self.get_flashcard_definition(), bg="#E6E6FA")
+            self.card_label.config(text=self.get_flashcard_definition(), bg="slategray1")
         else:
             # Display the front side (Japanese character)
             self.card_label.config(text=self.get_flashcard_text())
