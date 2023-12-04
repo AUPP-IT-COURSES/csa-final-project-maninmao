@@ -6,7 +6,7 @@ import pygame
 class FlashcardApp:
     def __init__(self, master):
         self.master = master
-        master.title("Japanese Flashcard App")
+        master.title("Nihonigiri - Learn Japanese")
         self.flip_interval = 10
 
         # Set up the homepage
